@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Título -->
+    <title>IFMA - Predição de Evasão Escolar</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="./src/img/core-img/favicon.ico">
+
+    <!-- Stylesheet -->
+    <!-- Index css -->
+    <link rel="stylesheet" type="text/css" href="./src/css/index.css">
+    <!-- Normalize css -->
+    <link rel="stylesheet" type="text/css" href="./src/css/normalize.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <!-- Bootstrap css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Nice Select css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css">
+</head>
+
+<body>
+
+    <section class="container">
+        <h1 class="body-titulo">Predição de Evasão Escolar</h1>
+        <p>Preencha os dados do aluno para obter a Predição sobre a chance de Evasão Escolar</p>
+        <hr>
+
+        <form action="/" method="post" id="formDadosAluno">
+            <h3>Dados Acadêmicos</h3>
+            <hr>
+            <div class="row">
+                <div class="form-group col">
+                    <label for="campus">Campus</label>
+                    <input type="text" class="form-control" id="campus" name="campus" value="" placeholder="">
+                </div>
+
+                <div class="form-group col">
+                    <label for="curso">Curso</label>
+                    <input type="text" class="form-control" id="curso" name="curso" placeholder="">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col">
+                    <label for="anoingresso">Ano do Ingresso</label>
+                    <input type="year" class="form-control" id="anoingresso" name="anoingresso" placeholder="">
+                </div>
+
+                <div class="form-group col">
+                    <label for="periodoingresso">Período de ingresso</label>
+
+                    <select class="form-control col" name="periodoingresso" id="periodoingresso">
+                        <option selected>Selecione uma opção</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                    </select>
+                </div>
+
+                <div class="form-group col">
+                    <label for="modalidade">Modalidade</label>
+
+                    <select class="form-control col" name="modalidade" id="modalidade">
+                        <option selected>Selecione uma opção</option>
+                        <option value="concomitante">Concomitante</option>
+                        <option value="licenciatura">Licenciatura</option>
+                        <option value="integrado">Integrado</option>
+                        <option value="subsequente">Subsequente</option>
+                        <option value="bacharelado">Bacharelado</option>
+                        <option value="integrado eja">EJA</option>
+                    </select>
+                </div>
+
+                <div class="form-group col">
+                    <label for="ira">IRA</label>
+                    <input type="text" class="form-control" id="ira" name="ira" placeholder="">
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="form-group col">
+                    <label for="reprovacoes">Reprovações</label>
+                    <input type="number" class="form-control" id="reprovacoes" name="reprovacoes" min="0" max="10"
+                        value="0">
+                </div>
+
+                <div class="form-group col">
+                    <label for="reprovacoes_por_falta">Reprovações por Falta</label>
+                    <input type="number" class="form-control" id="reprovacoes_por_falta" name="reprovacoes_por_falta"
+                        min="0" max="10" value="0">
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="form-group col">
+                    <label for="percentual_carga_horaria_frequentada_mean">Percentual de Carga Horária
+                        Frequentada</label>
+                    <input type="text" class="form-control" id="percentual_carga_horaria_frequentada_mean"
+                        name="percentual_carga_horaria_frequentada_mean" placeholder="">
+                </div>
+
+                <div class="form-group col">
+                    <label for="carga_horaria_total">Carga Horária Total</label>
+                    <input type="text" class="form-control" id="carga_horaria_total" name="carga_horaria_total"
+                        placeholder="">
+                </div>
+
+            </div>
+
+            <h3>Dados Socioeconômicos</h3>
+            <hr>
+
+            <div class="row">
+
+                <div class="form-group col">
+                    <label class="col-auto" for="genero">Gênero</label>
+
+                    <select class="form-control col" name="genero" id="genero">
+                        <option selected>Selecione uma opção</option>
+                        <option value="m">Masculino</option>
+                        <option value="f">Feminino</option>
+                    </select>
+                </div>
+
+                <div class="form-group col">
+                    <label class="col-auto" for="raca">Raça</label>
+
+                    <select class="form-control col" name="raca" id="raca">
+                        <option selected>Selecione uma opção</option>
+                        <option value="parda">Parda</option>
+                        <option value="branca">Branca</option>
+                        <option value="preta">Preta</option>
+                        <option value="amarela">Amarela</option>
+                        <option value="indigena">Indígena</option>
+                        <option value="nao informado">Não informado</option>
+                    </select>
+                </div>
+
+                <div class="form-group col">
+                    <label for="idade">Idade</label>
+                    <input type="number" class="form-control" id="idade" name="idade" min="0" max="100">
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="form-group col">
+                    <label for="idioma">Idioma Estrangeiro</label>
+
+                    <select class="form-control col" name="idioma" id="idioma">
+                        <option selected>Selecione uma opção</option>
+                        <option value="true">Sim</option>
+                        <option value="false">Não</option>
+                    </select>
+                </div>
+
+                <div class="form-group col">
+                    <label for="ficou_tempo_sem_estudar">Ficou tempo sem estudar?</label>
+
+                    <select class="form-control col" name="ficou_tempo_sem_estudar" id="ficou_tempo_sem_estudar">
+                        <option selected>Selecione uma opção</option>
+                        <option value="true">Sim</option>
+                        <option value="false">Não</option>
+                    </select>
+                </div>
+
+                <div class="form-group col">
+                    <label for="estado_civil">Estado civil</label>
+
+                    <select class="form-control col" name="estado_civil" id="estado_civil">
+                        <option selected>Selecione uma opção</option>
+                        <option value="solteiro(a)">Solteiro(a)</option>
+                        <option value="casado(a)">Casado(a)</option>
+                        <option value="união estável">União estável</option>
+                        <option value="divorciado(a)">Divorciado(a)</option>
+                        <option value="viúvo(a)">Viúvo(a)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="form-group col">
+                    <label for="companhia_domiciliar">Companhia Domiciliar</label>
+
+                    <select class="form-control col" name="companhia_domiciliar" id="companhia_domiciliar">
+                        <option selected>Selecione uma opção</option>
+                        <option value="parentes">Parentes</option>
+                        <option value="cônjuge">Cônjuge</option>
+                        <option value="pais">Pais</option>
+                        <option value="sozinho">Sozinho</option>
+                        <option value="indigena">Indígena</option>
+                        <option value="mãe">Mãe</option>
+                        <option value="pai">Pai</option>
+                        <option value="avó">Avó</option>
+                        <option value="avô">Avô</option>
+                        <option value="tios">Tios</option>
+                        <option value="amigo(s)">Amigo(s)</option>
+                        <option value="outro">Outro</option>
+                    </select>
+                </div>
+
+                <div class="form-group col">
+                    <label for="mae_nivel_escolaridade">Escolaridade da Mãe</label>
+                    <select class="form-control col" name="mae_nivel_escolaridade" id="mae_nivel_escolaridade">
+                        <option>Selecione uma opção</option>
+                        <option value="pós-gradução completa">Pós-Graduação completa</option>
+                        <option value="pós-graduação incompleta">Pós-Graduação incompleta</option>
+                        <option value="ensino superior completo">Ensino Superior completo</option>
+                        <option value="ensino superior incompleto">Ensino Superior incompleto</option>
+                        <option value="ensino médio completo">Ensino Médio completo</option>
+                        <option value="ensino médio incompleto">Ensino Médio incompleto</option>
+                        <option value="ensino fundamental completo">Ensino Fundamental completo</option>
+                        <option value="ensino fundamental incompleto">Ensino Fundamental incompleto</option>
+                        <option value="alfabetizado">Alfabetizado</option>
+                        <option value="não estudou">Não estudou</option>
+                        <option value="não sei informar">Não sei informar</option>
+                    </select>
+                </div>
+
+                <div class="form-group col">
+                    <label for="pai_nivel_escolaridade">Escolaridade do Pai</label>
+                    <select class="form-control col" name="pai_nivel_escolaridade" id="pai_nivel_escolaridade">
+                        <option selected>Selecione uma opção</option>
+                        <option value="pós-gradução completa">Pós-Graduação completa</option>
+                        <option value="pós-graduação incompleta">Pós-Graduação incompleta</option>
+                        <option value="ensino superior completo">Ensino Superior completo</option>
+                        <option value="ensino superior incompleto">Ensino Superior incompleto</option>
+                        <option value="ensino médio completo">Ensino Médio completo</option>
+                        <option value="ensino médio incompleto">Ensino Médio incompleto</option>
+                        <option value="ensino fundamental completo">Ensino Fundamental completo</option>
+                        <option value="ensino fundamental incompleto">Ensino Fundamental incompleto</option>
+                        <option value="alfabetizado">Alfabetizado</option>
+                        <option value="não estudou">Não estudou</option>
+                        <option value="não sei informar">Não sei informar</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="form-group col">
+                    <label for="qtd_filhos">Quantidade de Filhos</label>
+                    <input type="number" class="form-control" id="qtd_filhos" name="qtd_filhos" min="0" max="30"
+                        value="0">
+                </div>
+
+                <div class="form-group col">
+                    <label for="tipo_area_residencial">Tipo de Área Residencial</label>
+
+                    <select class="form-control col" name="tipo_area_residencial" id="tipo_area_residencial">
+                        <option selected>Selecione uma opção</option>
+                        <option value="urbano">Urbano</option>
+                        <option value="rural">Rural</option>
+                        <option value="comunidade quilombola">Comunidade Quilombola</option>
+                        <option value="assentamento rural">Assentamento rural</option>
+                        <option value="comunidade indígena">Comunidade indígena</option>
+                    </select>
+                </div>
+
+                <div class="form-group col">
+                    <label for="trabalha">Trabalha?</label>
+
+                    <select class="form-control col" name="trabalha" id="trabalha">
+                        <option selected>Selecione uma opção</option>
+                        <option value="nunca trabalhou">Nunca trabalhou</option>
+                        <option value="trabalha com vínculo empregatício">Trabalha com vínculo empregatício</option>
+                        <option value="não está trabalhando">Não está trabalhando</option>
+                        <option value="serviço público">Serviço público</option>
+                        <option value="estágio ou bolsa">Estágio ou bolsa</option>
+                        <option value="trabalho informal/bico">Trabalho informal/bico</option>
+                        <option value="pescador">Pescador</option>
+                        <option value="trabalhador rural/agricultor">Trabalhador rural/agricultor</option>
+                        <option value="empresa privada">Empresa privada</option>
+                        <option value="aposentado">Aposentado</option>
+                        <option value="beneficiário ou pensionista do inss">Beneficiário ou pensionista do INSS</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="form-group col">
+                    <label for="rendabruta">Renda Bruta</label>
+                    <input type="text" class="form-control" id="rendabruta" name="rendabruta" placeholder="">
+                </div>
+
+                <div class="form-group col">
+                    <label for="quantidade_computadores">Quantidade de Computadores</label>
+                    <input type="number" class="form-control" id="quantidade_computadores"
+                        name="quantidade_computadores" min="0" max="10" value="0">
+                </div>
+
+                <div class="form-group col">
+                    <label for="quantidade_notebooks">Quantidade de Notebooks</label>
+                    <input type="number" class="form-control" id="quantidade_notebooks" name="quantidade_notebooks"
+                        min="0" max="10" value="0">
+                </div>
+            </div>
+
+            <hr>
+
+            <span class="div-btn">
+                <button class="btn btn-primary" type="submit" form="formDadosAluno" value="OK">Enviar</button>
+                <button type="button" class="btn btn-success" id="btnSugerir">Sugerir</button>
+                <button type="reset" class="btn btn-light" id="btnLimpar">Limpar</button>
+            </span>
+
+        </form>
+
+        <footer class="footer-area">
+
+        </footer>
+    </section>
+
+    <!-- ##### All Javascript Files ##### -->
+    <!-- jQuery js -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <!-- Popper js -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <!-- Bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <!-- Nice Select js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+    <!-- Index js -->
+    <script src="./src/js/index.js"></script>
+
+</body>
+
+</html>
